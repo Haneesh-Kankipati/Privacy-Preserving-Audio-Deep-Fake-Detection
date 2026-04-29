@@ -29,7 +29,7 @@ The work evaluates:
 
 * The model requires `.wav` input files.
 * Original dataset was in `.flac` format.
-* Converted `.flac → .wav` using:
+* Converted `.flac → .wav` using: (preprocess.py)
 
   * `librosa`
   * `soundfile`
@@ -40,13 +40,13 @@ The work evaluates:
 
 ### Training
 
-* Trained VRVQ model on processed dataset
+* Trained VRVQ model on processed dataset (train.py)
 * Generated trained weights: `weights.pth`
 
 ### Bitrate Experiments
 
 * Selected 10 audio samples
-* Modified sample rates (treated as bitrate variation):
+* Modified sample rates (treated as bitrate variation): (convert.py)
 
   * 8000 Hz
   * 16000 Hz
@@ -55,7 +55,7 @@ The work evaluates:
 
 ### Observation
 
-* Inference time increases **logarithmically** with increasing bitrate
+* Inference time increases **logarithmically** with increasing bitrate (inference.py)
 * Higher bitrate → more data → higher computational cost
 
 ---
@@ -74,24 +74,24 @@ Audio → VRVQ → Frontend CDM → HuBERT → SafeEar
 
 ### Dataset Preparation
 
-1. Processed entire **ASVspoof dataset** through VRVQ
-2. Converted outputs:
+1. Processed entire **ASVspoof dataset** through VRVQ 
+2. Converted outputs: (flac.py)
 
    * `.wav → .flac`
    * Downsampled to **16 kHz**
 
 ### Feature Extraction
 
-* Used **HuBERT model**
+* Used **HuBERT model** (hubert.py)
 * Generated token files (`.npy`) for each audio sample
 
 ### Model Training
 
-* Trained **SafeEar** using generated tokens
+* Trained **SafeEar** using generated tokens (train.py)
 
 ### Evaluation
 
-* Built test pipeline to compute:
+* Built test pipeline to compute: (mytest.py)
 
   * EER (Equal Error Rate)
   * min t-DCF
