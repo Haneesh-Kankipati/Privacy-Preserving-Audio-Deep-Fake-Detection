@@ -1,6 +1,16 @@
 # Privacy-Preserving-Audio-Deep-Fake-Detection
 # Variable Bitrate Residual Vector Quantization for Audio Coding
 
+Python 3.9.13
+argbind>=0.3.7
+descript-audiotools>=0.7.2
+einops
+numpy==1.26
+tqdm
+numba>=0.5.7
+tensorboard
+torchmetrics
+
 ## Overview
 
 This project explores the use of **Variable Bitrate Residual Vector Quantization (VRVQ)** for audio coding and its integration with the **SafeEar** pipeline for deepfake audio detection.
